@@ -11,7 +11,6 @@ class Ean
   def self.hotel
     api = Expedia::Api.new
     response = api.get_list({city: "Seattle"})
-    # binding.pry
     if response.exception?
       false
     else

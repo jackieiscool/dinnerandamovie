@@ -11,4 +11,7 @@ restaurants = Restaurant.create([
   { name: '', description: '', head_chef: '', city: '', country_display: '', country_code: '', price: , website: '', lat: , lng: ''},
   { }
   ])
+departures = Departure.create([
+  { city: 'San Francisco', state: 'CA', country: 'USA', airport_code: 'SFO' }
+  ])
 
