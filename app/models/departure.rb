@@ -1,4 +1,4 @@
 class Departure < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :city, :state, :country, :airport_code
   has_many :flights
 end
