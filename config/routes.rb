@@ -1,5 +1,5 @@
 DinnerMovieApp::Application.routes.draw do
-  get "restaurants", to: "restaurants#index"
+  get "restaurants/:departure", to: "restaurants#index"
 
   get "home/index"
 
