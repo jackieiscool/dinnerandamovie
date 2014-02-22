@@ -1,6 +1,8 @@
 $(function(){
 
-  $('body').on('click', function(){
+
+  // NEED to fix this so that this gets populated without clicking:
+  $('p').on('click', function(){
     getLocation();
   })
 
@@ -24,7 +26,7 @@ $(function(){
 
     var latlng = lat + "," + lng;
     // $.cookie("location", latlng, {expires: 20/(24*60)})
-    getAddress(lat.toFixed(5), lng.toFixed(5)) //toFixed(5) up to 5 sigfigs
+    getAddress(lat, lng) //toFixed(5) up to 5 sigfigs
   }
 
 
@@ -50,12 +52,16 @@ $(function(){
         if(response['results'].length == 0) {
           console.log("No geocode results");
         } else {
-          // console.log(response);
+          console.log("response is: ", response);
           address = response["results"][0]["formatted_address"];
           street = response["results"][0]["address_components"][0]["long_name"] + ' ' + response["results"][0]["address_components"][1]["long_name"];
           city = response["results"][0]["address_components"][3]["long_name"];
           state = response["results"][0]["address_components"][5]["long_name"];
-          zip = response["results"][0]["address_components"][7]["long_name"];
+          if (response["results"][0]["address_components"][7] != undefined){
+            zip = response["results"][0]["address_components"][7]["long_name"];
+          }else{
+            zip = response["results"][0]["address_components"][6]["long_name"];
+          }
         };
         console.log('ajax get request');
         console.log("address", address)
@@ -73,9 +79,21 @@ $(function(){
     $('#location').append('<li id="lng">'+lng+'</li>');
     $('#location').append('<li id="address">'+address+'</li>');
     $('#current_location').append('Your device indicates that you are currently located at: ' + address);
+    $('#current_location').append('<button id="restaurant">Where\'s my Nearest Eats?!</button>')
     // $('#current_lat').append(typeof(lat));
     $('#current_lat').append('Latitude: ' + parseFloat(lat).toFixed(5));
     $('#current_lng').append('Longitude: ' + parseFloat(lng).toFixed(5));
+
+  }
+
+  // get nearest restaurant
+  $('body').on('click', '#restaurant', function(){
+    console.log("you've clicked the nearest restaurant.");
+    expediaHotelSearch(lat, lng);
+  })
+
+  // Expedia Hotel API Call
+  var expediaHotelSearch = function(lat, lng) {
 
   }
 
