@@ -1,4 +1,6 @@
 DinnerMovieApp::Application.routes.draw do
+  get "restaurants/index"
+
   get "home/index"
 
   # The priority is based upon order of creation:
