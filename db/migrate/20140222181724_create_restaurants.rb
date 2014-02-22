@@ -5,7 +5,8 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string :description
       t.string :head_chef
       t.string :city
-      t.string :country
+      t.string :country_display
+      t.string :country_code
       t.integer :price
       t.string :website
       t.integer :lat
