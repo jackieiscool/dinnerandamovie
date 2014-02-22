@@ -3,16 +3,17 @@ class Ean
   include ActiveModel::Conversion
   extend ActiveModel::Naming
 
-  def self.hotels
+  def self.hotels(departure_city)
     data = []
     restaurants = Restaurant.all
     restaurants.each do |restaurant|
-      hotel = self.hotel(restaurant)
+      hotel = self.hotel restaurant
       restaurant[:hotel] =
       { name: hotel["name"],
         price: hotel["highRate"]
       }
       restaurant[:flight] = 200
+      restaurant[:movie] = 10
       data << restaurant
     end
     data
