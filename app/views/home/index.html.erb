@@ -1,5 +1,4 @@
 <!-- <div>{{ controllerTest }}</div>
-<dinner-movie-dir>{{ directiveTest }}</dinner-movie-dir>
 <p>Location:</p>
 <div id="location"></div>
 <p>Current Location: </p>
@@ -11,21 +10,25 @@
     <h1 class="aqua uppercase">Dinner and a Movie</h1>
   </article>
   <section class="mls-n clear">
-    <article ng-repeat="r in restaurants" class="pls pvs size-1of3 fl flag text-white tc">
-      <div class="img-r img-r1 flag-child--center">
-        <h2 class="man pan f4 uppercase">{{ r.name }}</h2>
-        <p class="man pan f5">{{ r.city }}, {{ r.country_display }}</p>
-        <p class="man pan f5">{{ r.price }}</p>
+    <article ng-repeat="r in restaurants" class="pls pvs size-1of3 fl flag aqua tc">
+      <div ng-class="{ 'img-r1': r.id == 1, 'img-r2': r.id == 2,  'img-r3': r.id == 3,'img-r4': r.id == 4,'img-r5': r.id == 5,'img-r6': r.id == 6,'img-r7': r.id == 7,'img-r8': r.id == 8,'img-r9': r.id == 9,'img-r10': r.id == 10 }" class="img-r flag-child--center">
+        <div toggle-vis-dir>
+          <h2 class="man pan f4 uppercase">{{ r.name }}</h2>
+          <p class="man pan f5">{{ r.city }}, {{ r.country_display }}</p>
+          <p class="man pan f5">Restaurant Price: {{ r.price }}</p>
+          <p class="man pan f5" ng-if="r.flight.price != null">Flight Price: {{ r.flight.price }}</p>
+          <p class="man pan f5" ng-if="r.flight.price == null">No Flights Available Tomorrow</p>
+          <p class="man pan f5">Movie Price: {{ r.movie }}</p>
+          <p class="man pan f5">Total: {{ r.price + r.flight.price + r.movie }}</p>
+        </div>
       </div>
     </article>
   </section>
-
 
   <article class="mls-n clear">
     <h4>About</h4>
     <p>We are V++, located in the San Francisco Bay Area.  Dinner and a Movie is built from scratch over a Launch Hackathon Weekend.    </p>
   </article>
 </section>
-
 
 

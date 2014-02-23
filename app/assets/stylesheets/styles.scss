@@ -306,7 +306,36 @@ blockquote {  font-size: $font-size-2; }
 
 /*========================================== Font Colors, Backgrounds, Borders ===============================================*/
 .text-white { color: #fff; }
-.bg-semidrk { background-color: rgba(0,0,0,.8); }
+.bg-semidrk {
+  position: relative;
+  transition: all .3s ease;
+}
+.bg-semidrk:after {
+  content: " ";
+  display: block;
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+.toggle-vis.ng-hide-add, .toggle-vis.ng-hide-remove {
+  -webkit-transition:all linear 0.5s;
+  -moz-transition:all linear 0.5s;
+  -o-transition:all linear 0.5s;
+  transition:all linear 0.5s;
+  display:block!important;
+}
+.toggle-vis.ng-hide-add.ng-hide-add-active,
+.toggle-vis.ng-hide-remove {
+  opacity:0;
+}
+.toggle-vis.ng-hide-add,
+.toggle-vis.ng-hide-remove.ng-hide-remove-active {
+  opacity:1;
+}
+
 
 /*======================================== Display & Widths & Heights ========================================*/
 
@@ -318,7 +347,6 @@ blockquote {  font-size: $font-size-2; }
 .pos-rel { position: relative; }
 .pos-abs { position: absolute; }
 
-
 /*========================================== Alignment & Floats ===============================================*/
 .fl { float: left; }
 .fr { float: right; }
@@ -327,6 +355,10 @@ blockquote {  font-size: $font-size-2; }
 
 
 /*========================================== BACKGROUND IMAGES ===============================================*/
+.dots:after {
+    content: '';
+    background: transparent url('pattern.png') repeat top left;
+}
 .img-r {
   height: 200px;
   background-repeat:no-repeat;
@@ -344,6 +376,34 @@ blockquote {  font-size: $font-size-2; }
   background-image: url(http://content.theworlds50best.com/img/2013/rp-el-celler-de-can-roca-3.jpg);
 }
 
+.img-r2 {
+  background-image: url(http://content.theworlds50best.com/img/2013/rp-noma-3.jpg);
+}
+.img-r3 {
+  background-image: url(http://content.theworlds50best.com/img/2013/rp-osteria-francescana-3.jpg);
+}
+.img-r4 {
+  background-image: url(http://content.theworlds50best.com/img/2013/rp-mugaritz-3.jpg);
+}
+.img-r5 {
+  background-image: url(http://content.theworlds50best.com/img/2013/rp-eleven-madison-park-3.jpg);
+}
+.img-r6 {
+  background-image: url(http://content.theworlds50best.com/img/2013/rp-dom-3.jpg);
+}
+.img-r7 {
+  background-image: url(http://content.theworlds50best.com/img/2013/rp-dinner-3.jpg);
+}
+.img-r8 {
+  background-image: url(http://content.theworlds50best.com/img/2013/rp-arzak-3.jpg);
+}
+.img-r9 {
+  background-image: url(http://content.theworlds50best.com/img/2013/rp-steirereck-3.jpg);
+}
+.img-r10 {
+  background-image: url(http://content.theworlds50best.com/img/2013/rp-vendome-3.jpg);
+}
+
 /* ==========================================================================
   MEDIA QUERIES BREAKPOINTS - DEFAULT IS MOBILE
    ========================================================================== */
@@ -357,3 +417,4 @@ blockquote {  font-size: $font-size-2; }
 @include break(large) {
   .mw-90-l { max-width: 90em; }
 }
+
