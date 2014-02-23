@@ -7,21 +7,11 @@ myApp.controller('dinnerMovieCtrl', function($scope, $http){
   $scope.controllerTest = 'Controller working, yay!';
   $http.get('/restaurants/sfo')
     .then(function(res){
+      //if you need to access anything in the views, it needs $scope.someName. Then in the view, you can access it like this: {{ someName }}
       $scope.restaurants = res.data;
      });
 });
 
-//==================================================================================================
-// DIRECTIVE - dinner-movie-dir test controller
-//==================================================================================================
-myApp.directive('dinnerMovieDir', function(){
-  return {
-    restrict: 'AE',
-  link: function(scope, element, attrs){
-    scope.directiveTest = "directive working, yay!";
-  }
-  };
-});
 
 //==================================================================================================
 // DIRECTIVE - geo-location-dir attached to body to find user device location
