@@ -41,7 +41,6 @@ ActiveRecord::Schema.define(:version => 20140223011906) do
     t.string   "country_display"
     t.string   "country_code"
     t.integer  "price"
-    t.integer  "movie"
     t.string   "website"
     t.float    "lat"
     t.float    "lng"
