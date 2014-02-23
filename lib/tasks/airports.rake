@@ -1,6 +1,5 @@
 require 'nokogiri'
 require 'open-uri'
-require 'pry'
 require 'capybara'
 require 'capybara/poltergeist'
 require 'capybara/dsl'
@@ -111,13 +110,9 @@ namespace :airports do
             flight.leaving_at = depart_time
             flight.url = e.url
           end
-        
+          p "Things are working"
         rescue
            p "Something went wrong"
-
-        ensure
-          p "Things are working"
-
         end
       end
     end
