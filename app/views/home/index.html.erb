@@ -7,62 +7,23 @@
 <!--
 https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=55505&minorRev=99&apiKey=cbrzfta369qwyrm9t5b8y8kf&locale=en_US&currencyCode=USD&xml=%3CHotelListRequest%3E%0A%20%20%20%20%3Ccity%3ESeattle%3C%2Fcity%3E%0A%20%20%20%20%3CstateProvinceCode%3EWA%3C%2FstateProvinceCode%3E%0A%20%20%20%20%3CcountryCode%3EUS%3C%2FcountryCode%3E%0A%20%20%20%20%3CarrivalDate%3E3%2F24%2F2014%3C%2FarrivalDate%3E%0A%20%20%20%20%3CdepartureDate%3E3%2F26%2F2014%3C%2FdepartureDate%3E%0A%20%20%20%20%3CRoomGroup%3E%0A%20%20%20%20%20%20%20%20%3CRoom%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3CnumberOfAdults%3E2%3C%2FnumberOfAdults%3E%0A%20%20%20%20%20%20%20%20%3C%2FRoom%3E%0A%20%20%20%20%3C%2FRoomGroup%3E%0A%20%20%20%20%3CnumberOfResults%3E25%3C%2FnumberOfResults%3E%0A%3C%2FHotelListRequest%3E -->
 
-<<<<<<< HEAD
-<<<<<<< HEAD
 <section class="size-9of12 mw-90-l center">
   <article class="phm size-full img-r0">
     <h1 class="aqua uppercase">Dinner and a Movie</h1>
   </article>
   <section class="mls-n clear">
-    <article ng-repeat="r in restaurants" class="pls pvs size-1of3 fl flag text-white tc">
-      <div class="img-r img-r1 flag-child--center bg-semidrk">
-        <h2 class="man pan f4 uppercase">{{ r.name }}</h2>
-        <p class="man pan f5">{{ r.city }}, {{ r.country_display }}</p>
-        <p class="man pan f5">{{ r.price }}</p>
+    <article ng-repeat="r in restaurants" class="pls pvs size-1of3 fl flag aqua tc">
+      <div ng-class="{ 'img-r1': r.id == 1, 'img-r2': r.id == 2,  'img-r3': r.id == 3,'img-r4': r.id == 4,'img-r5': r.id == 5,'img-r6': r.id == 6,'img-r7': r.id == 7,'img-r8': r.id == 8,'img-r9': r.id == 9,'img-r10': r.id == 10 }" class="img-r flag-child--center">
+        <div toggle-vis-dir>
+          <h2 class="man pan f4 uppercase">{{ r.name }}</h2>
+          <p class="man pan f5">{{ r.city }}, {{ r.country_display }}</p>
+          <p class="man pan f5">Restaurant Price: {{ r.price }}</p>
+          <p class="man pan f5" ng-if="r.flight.price != null">Flight Price: {{ r.flight.price }}</p>
+          <p class="man pan f5" ng-if="r.flight.price == null">No Flights Available Tomorrow</p>
+          <p class="man pan f5">Movie Price: {{ r.movie }}</p>
+          <p class="man pan f5">Total: {{ r.price + r.flight.price + r.movie }}</p>
+        </div>
       </div>
     </article>
   </section>
 </section>
-=======
-=======
->>>>>>> merge conflict in index view.
-<<<<<<< HEAD
-=======
-<section class="size-9of12 mw-90-l center clear">
-  <article class="size-full img-r0"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-=======
-<section class="size-9of12 mw-90-l center">
-  <article class="phm size-full img-r0">
-    <h1 class="aqua uppercase">Dinner and a Movie</h1>
-  </article>
-  <section class="mls-n clear">
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-  </section>
-
-
-  <ul ng-repeat="r in restaurants">
-    <li>{{ r.name }}</li>
-    <li>{{ r.city }}, {{r.country_display}}</li>
-    <li>{{ r.price }}</li>
-  </ul>
->>>>>>> Add layout/filler-images to index
-</section>
->>>>>>> Add template css classes and basic layout
->>>>>>> Add template css classes and basic layout
