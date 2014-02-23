@@ -11,6 +11,7 @@ gem 'expedia'
 gem 'nokogiri'
 gem 'capybara'
 gem "poltergeist", "~> 1.5.0"
+gem 'seed_dump'
 
 
 # Gems used only for assets and not required
