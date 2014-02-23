@@ -3,8 +3,12 @@ var myApp = angular.module('dinnerMovieApp', []);
 //==================================================================================================
 // CONTROLLERS
 //==================================================================================================
-myApp.controller('dinnerMovieCtrl', function($scope){
+myApp.controller('dinnerMovieCtrl', function($scope, $http){
   $scope.controllerTest = 'Controller working, yay!';
+  $http.get('/restaurants/sfo')
+    .then(function(res){
+      $scope.restaurants = res.data;
+     });
 });
 
 //==================================================================================================

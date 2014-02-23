@@ -1,0 +1,358 @@
+@import url(http://fonts.googleapis.com/css?family=Domine);
+@import url(http://fonts.googleapis.com/css?family=Ultra);
+@import url(http://fonts.googleapis.com/css?family=Arvo:400,700);
+
+/* ==========================================================================
+   VARIABLES
+   ========================================================================== */
+
+/* Colors
+   ========================================================================== */
+
+/* Don't use black */
+
+$near-black:  #111;
+$white: #fff;
+
+/* Gray scale */
+
+$gray-dark:   #222;
+$gray-medium: #999;
+$gray-light:  #eee;
+
+
+/* Type Scale
+   ========================================================================== */
+
+/**
+ * 12 & 16 as roots then powers of two.
+ */
+
+$font-size-1:72px;
+$font-size-2:48px;
+$font-size-3:36px;
+$font-size-4:24px;
+
+$font-size-5:18px;
+$font-size-6:12px;
+
+
+/* Medium */
+$breakpoint-1-max-width:48em;
+
+/* Large */
+$breakpoint-2-min-width:48em;
+$breakpoint-2-max-width:64em;
+
+/* ==========================================================================
+   QUERIES
+   ========================================================================== */
+
+/*
+ * Mixing for mobile first queries.
+ * Two breakpoints.
+ * Use like @include break(medium) { ***Styles*** }
+ *
+ */
+
+@mixin break($point) {
+  @if $point == not-small {
+    @media screen and (min-width: 48em) {
+      @content;
+    }
+  }
+  @else if $point == medium {
+    @media screen and (min-width: 64em) and (max-width:90em) {
+      @content;
+    }
+  }
+  @else if $point == large {
+    @media screen and (min-width: 90em)  {
+      @content;
+    }
+  }
+}
+
+/* ==========================================================================
+  SMART PEOPLE'S CODE
+   ========================================================================== */
+/* ----------- Nicholas Gallagher Micro ClearFix -------------*/
+.clear:before,
+.clear:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.clear:after {
+  clear: both;
+}
+
+/**
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+.clear {
+  *zoom: 1;
+}
+
+/* ----------- Paul Irish Box Sizing -------------*/
+*, *:before, *:after {
+  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
+}
+
+/* ==========================================================================
+SPACING
+========================================================================== */
+
+/* Padding */
+
+.pan { padding: 0; }
+.paxs { padding: .25rem; }
+.pas { padding: .5rem; }
+.pam { padding: 1rem; }
+.pal { padding: 2rem; }
+.pax { padding: 4rem; }
+
+.pln { padding-left: 0; }
+.pls { padding-left: .5rem; }
+.plm { padding-left: 1rem; }
+.pll { padding-left: 2rem; }
+.plx { padding-left: 4rem; }
+
+.prn { padding-right: 0; }
+.prs { padding-right: .5rem; }
+.prm { padding-right: 1rem; }
+.prl { padding-right: 2rem; }
+.prx { padding-right: 4rem; }
+
+.pbn { padding-bottom: 0; }
+.pbxs { padding-bottom: .25rem; }
+.pbs { padding-bottom: .5rem; }
+.pbm { padding-bottom: 1rem; }
+.pbl { padding-bottom: 2rem; }
+.pbx { padding-bottom: 4rem; }
+
+.ptn { padding-top: 0; }
+.pts { padding-top: .5rem; }
+.ptm { padding-top: 1rem; }
+.ptl { padding-top: 2rem; }
+.ptx { padding-top: 4rem; }
+
+.pvn { padding-top: 0; padding-bottom: 0; }
+.pvxs { padding-top: .25rem; padding-bottom: .25rem; }
+.pvs { padding-top: .5rem; padding-bottom: .5rem; }
+.pvm { padding-top: 1rem; padding-bottom: 1rem; }
+.pvl { padding-top: 2rem; padding-bottom: 2rem; }
+.pvx { padding-top: 4rem; padding-bottom: 4rem; }
+
+.phn { padding-left: 0; padding-right:0;  }
+.phxs { padding-left: .25rem; padding-right: .25rem; }
+.phs { padding-left: .5rem; padding-right: .5rem; }
+.phm { padding-left: 1rem; padding-right: 1rem; }
+.phl { padding-left: 2rem; padding-right: 2rem; }
+.phx { padding-left: 4rem; padding-right: 4rem; }
+
+
+/* Margins */
+
+.man { margin: 0; }
+.mas { margin: .5rem; }
+.mam { margin: 1rem; }
+.mal { margin: 2rem; }
+.max { margin: 4rem; }
+
+.mls-n { margin-left: -0.5rem; }
+.mln { margin-left: 0; }
+.mlxs { margin-left: .25rem; }
+.mls { margin-left: .5rem; }
+.mlm { margin-left: 1rem; }
+.mll { margin-left: 2rem; }
+.mlx { margin-left: 4rem; }
+
+.mrn { margin-right: 0; }
+.mrs { margin-right: .5rem; }
+.mrm { margin-right: 1rem; }
+.mrl { margin-right: 2rem; }
+.mrx { margin-right: 4rem; }
+
+.mbn { margin-bottom: 0; }
+.mbs { margin-bottom: .5rem; }
+.mbm { margin-bottom: 1rem; }
+.mbl { margin-bottom: 2rem; }
+.mbx { margin-bottom: 4rem; }
+
+.mtn { margin-top: 0; }
+.mtxs { margin-top: .25rem; }
+.mts { margin-top: .5rem; }
+.mtm { margin-top: 1rem; }
+.mtl { margin-top: 2rem; }
+.mtx { margin-top: 4rem; }
+
+.mvn { margin: 0; }
+.mvxs { margin-top: .25rem; margin-bottom: .25rem; }
+.mvs { margin: .5rem 0; }
+.mvm { margin: 1rem  0; }
+.mvl { margin: 2rem  0; }
+.mvx { margin: 4rem  0; }
+
+.mhn { margin: 0; }
+.mhs { margin: 0 .5rem; }
+.mhm { margin: 0 1rem; }
+.mhl { margin: 0 2rem; }
+.mhx { margin: 0 4rem; }
+
+/* Proportional widths
+   ========================================================================== */
+/**
+ * Specify the proportional width of an object.
+ * Intentional redundancy build into each set of unit classes.
+ * Supports: 2, 4, 5, 6, 8, 10, 12 part
+ */
+.size-full {
+  width: 100%; }
+
+.size-1of12 {
+  width: 8.333% !important; }
+
+.size-1of10 {
+  width: 10% !important; }
+
+.size-1of8 {
+  width: 12.5% !important; }
+
+.size-1of6, .size-2of12 {
+  width: 16.667% !important; }
+
+.size-1of5, .size-2of10 {
+  width: 20% !important; }
+
+.size-1of4, .size-2of8, .size-3of12 {
+  width: 25% !important; }
+
+.size-3of10 {
+  width: 30% !important; }
+
+.size-1of3, .size-2of6, .size-3of9, .size-4of12 {
+  width: 33.333% !important; }
+
+.size-3of8 {
+  width: 37.5% !important; }
+
+.size-2of5, .size-4of10 {
+  width: 40% !important; }
+
+.size-5of12 {
+  width: 41.667% !important; }
+
+.size-1of2, .size-2of4, .size-3of6, .size-4of8, .size-5of10, .size-6of12 {
+  width: 50% !important; }
+
+.size-7of12 {
+  width: 58.333% !important; }
+
+.size-3of5, .size-6of10 {
+  width: 60% !important; }
+
+.size-5of8 {
+  width: 62.5% !important; }
+
+.size-2of3, .size-4of6, .size-8of12 {
+  width: 66.667% !important; }
+
+.size-7of10 {
+  width: 70% !important; }
+
+.size-3of4, .size-6of8, .size-9of12 {
+  width: 75% !important; }
+
+.size-4of5, .size-8of10 {
+  width: 80% !important; }
+
+.size-5of6, .size-10of12 {
+  width: 83.333% !important; }
+
+.size-7of8 {
+  width: 87.5% !important; }
+
+.size-9of10 {
+  width: 90% !important; }
+
+.size-11of12 {
+  width: 91.667% !important; }
+
+
+/* ==========================================================================
+   MY CUSTOM STYLES
+   ========================================================================== */
+/* { outline: 1px solid gold; }
+ *
+ */
+body { font-family: 'Domine', serif; }
+h1 { font-family: 'Arvo', serif; margin:0; padding:0; }
+
+p {           font-size: $font-size-5; }
+.intro {      font-size: $font-size-3; }
+h1,.f1 {      font-size: $font-size-1; }
+h2,.f2 {      font-size: $font-size-2; }
+h3,.f3 {      font-size: $font-size-3; }
+h4,.f4 {      font-size: $font-size-4; }
+h5,.f5 {      font-size: $font-size-5; }
+h6,.f6 {      font-size: $font-size-6; }
+.meta {       font-size: $font-size-6; }
+blockquote {  font-size: $font-size-2; }
+
+.uppercase { text-transform: uppercase; }
+
+
+/*========================================== Font Colors, Backgrounds, Borders ===============================================*/
+.text-white { color: #fff; }
+
+/*======================================== Display & Widths & Heights ========================================*/
+
+.db { display: block; }
+.dib { display: inline-block; }
+.flag { display: table; width: 100%; }
+.flag-child--center { display: table-cell; vertical-align: middle; }
+
+.pos-rel { position: relative; }
+.pos-abs { position: absolute; }
+
+
+/*========================================== Alignment & Floats ===============================================*/
+.fl { float: left; }
+.fr { float: right; }
+.center { margin-left: auto; margin-right: auto; }
+.tc { text-align: center; }
+
+
+/*========================================== BACKGROUND IMAGES ===============================================*/
+.img-r {
+  height: 200px;
+  background-repeat:no-repeat;
+  background-size:100%;
+  background-position:center;
+}
+.img-r0 {
+  height: 400px;
+  background-image: url(http://blogs.denmark.dk/eatsmart/files/2013/05/Restaurant_Noma_458101a2.jpg);
+  background-repeat:no-repeat;
+  background-size:100%;
+  background-position:top;
+}
+.img-r1 {
+  background-image: url(http://content.theworlds50best.com/img/2013/rp-el-celler-de-can-roca-3.jpg);
+}
+
+/* ==========================================================================
+  MEDIA QUERIES BREAKPOINTS - DEFAULT IS MOBILE
+   ========================================================================== */
+/* ----------- Not-Small (48em/768px and above), Medium (between 48em and 64em) & Large (above 64em/1024px) Breakpoints -------------*/
+@include break(not-small) {
+}
+
+@include break(medium) {
+}
+
+@include break(large) {
+  .mw-90-l { max-width: 90em; }
+}
