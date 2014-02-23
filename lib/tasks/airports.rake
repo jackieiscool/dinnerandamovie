@@ -106,6 +106,8 @@ namespace :airports do
           depart_time = location.first.children[1].text
           price = info.css('.dollars').text.gsub(/\$|,/, "").to_i
 
+          Flight.create(restaurant_id: restaurant.id , departure_id: departure.id, price: price, leaving_at: depart_time, url: e.url)  
+        
         rescue
            p "Something went wrong"
 
@@ -113,8 +115,6 @@ namespace :airports do
           p "Things are working"
 
         end
-
-        Flight.create(restaurant_id: restaurant.id , departure_id: departure.id, price: price, leaving_at: depart_time, url: e.url)  
       end
     end
   end
