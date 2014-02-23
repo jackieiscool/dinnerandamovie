@@ -61,16 +61,16 @@ class ExpediaScrapper
   }
 
   def initialize(start_city, end_city)
-    @date = Date.today.month.to_s + "/" + Date.today.day.to_s + "/" + Date.today.year.to_s
+    @date = Date.tomorrow.month.to_s + "/" + Date.tomorrow.day.to_s + "/" + Date.tomorrow.year.to_s
     @start_city = start_city.gsub(/\s/, "%20")
     @end_city = end_city.gsub(/\s/, "%20")
     @start_code = AIRPORTS[start_city]
     @end_code = AIRPORTS[end_city]
-    @tomorrow = (Date.today + 1.day).month.to_s + "/" + (Date.today + 1.day).day.to_s + "/" + (Date.today + 1.day).year.to_s
+    @tomorrow = (Date.tomorrow + 1.day).month.to_s + "/" + (Date.tomorrow + 1.day).day.to_s + "/" + (Date.tomorrow + 1.day).year.to_s
   end
 
   def url
-    @url ||= "http://www.expedia.com/Flights-Search?trip=roundtrip&leg1=from:#{@start_city}(#{@start_code}),to:#{@end_city}(#{@end_code}),departure:#{@date}TANYT&leg2=from:#{@end_city}(#{@end_code}),to:#{@start_city}(#{@end_code}),departure:#{@tomorrow}TANYT&passengers=children:0,adults:1,seniors:0,infantinlap:Y&mode=search"
+    @url ||= "http://www.expedia.com/Flights-Search?trip=roundtrip&leg1=from:#{@start_city}(#{@start_code}),to:#{@end_city}(#{@end_code}),departure:#{@date}TANYT&leg2=from:#{@end_city}(#{@end_code}),to:#{@start_city}(#{@start_code}),departure:#{@tomorrow}TANYT&passengers=children:0,adults:1,seniors:0,infantinlap:Y&mode=search"
   end
 
   def expedia_page
@@ -106,7 +106,11 @@ namespace :airports do
           depart_time = location.first.children[1].text
           price = info.css('.dollars').text.gsub(/\$|,/, "").to_i
 
-          Flight.create(restaurant_id: restaurant.id , departure_id: departure.id, price: price, leaving_at: depart_time, url: e.url)  
+          Flight.where(restaurant_id: restaurant.id , departure_id: departure.id).first_or_create do |flight|
+            flight.price = price
+            flight.leaving_at = depart_time
+            flight.url = e.url
+          end
         
         rescue
            p "Something went wrong"
