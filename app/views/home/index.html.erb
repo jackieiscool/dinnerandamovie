@@ -12,10 +12,10 @@ https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=55505&minorRev=99&apiKe
     <h1 class="aqua uppercase">Dinner and a Movie</h1>
   </article>
   <section class="mls-n clear">
-    <article ng-repeat="r in restaurants" class="pls pvs size-1of3 fl flag aqua tc">
+    <article ng-repeat="r in restaurants" class="pls pvs size-1of3 fl flag text-white tc">
       <div ng-class="{ 'img-r1': r.id == 1, 'img-r2': r.id == 2,  'img-r3': r.id == 3,'img-r4': r.id == 4,'img-r5': r.id == 5,'img-r6': r.id == 6,'img-r7': r.id == 7,'img-r8': r.id == 8,'img-r9': r.id == 9,'img-r10': r.id == 10 }" class="img-r flag-child--center">
-        <div toggle-vis-dir>
-          <h2 class="man pan f4 uppercase">{{ r.name }}</h2>
+        <div ng-mouseenter="toggleVis(r)" ng-mouseleave="toggleVis(r)">
+          <h2 ng-class="{  'visible': r.hover, 'hidden': !r.hover  }" class="man pan f4 uppercase">{{ r.name }}</h2>
           <p class="man pan f5">{{ r.city }}, {{ r.country_display }}</p>
           <p class="man pan f5">Restaurant Price: {{ r.price }}</p>
           <p class="man pan f5" ng-if="r.flight.price != null">Flight Price: {{ r.flight.price }}</p>

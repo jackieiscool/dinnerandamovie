@@ -343,9 +343,10 @@ blockquote {  font-size: $font-size-2; }
 .dib { display: inline-block; }
 .flag { display: table; width: 100%; }
 .flag-child--center { display: table-cell; vertical-align: middle; }
-
 .pos-rel { position: relative; }
 .pos-abs { position: absolute; }
+.visible { visibility: visible; }
+.hidden { visibility: hidden; }
 
 /*========================================== Alignment & Floats ===============================================*/
 .fl { float: left; }
