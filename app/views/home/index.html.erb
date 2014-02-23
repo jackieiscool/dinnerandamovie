@@ -8,15 +8,26 @@
 <!--
 https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=55505&minorRev=99&apiKey=cbrzfta369qwyrm9t5b8y8kf&locale=en_US&currencyCode=USD&xml=%3CHotelListRequest%3E%0A%20%20%20%20%3Ccity%3ESeattle%3C%2Fcity%3E%0A%20%20%20%20%3CstateProvinceCode%3EWA%3C%2FstateProvinceCode%3E%0A%20%20%20%20%3CcountryCode%3EUS%3C%2FcountryCode%3E%0A%20%20%20%20%3CarrivalDate%3E3%2F24%2F2014%3C%2FarrivalDate%3E%0A%20%20%20%20%3CdepartureDate%3E3%2F26%2F2014%3C%2FdepartureDate%3E%0A%20%20%20%20%3CRoomGroup%3E%0A%20%20%20%20%20%20%20%20%3CRoom%3E%0A%20%20%20%20%20%20%20%20%20%20%20%20%3CnumberOfAdults%3E2%3C%2FnumberOfAdults%3E%0A%20%20%20%20%20%20%20%20%3C%2FRoom%3E%0A%20%20%20%20%3C%2FRoomGroup%3E%0A%20%20%20%20%3CnumberOfResults%3E25%3C%2FnumberOfResults%3E%0A%3C%2FHotelListRequest%3E -->
 
-<section class="size-9of12 mw-90-l center clear">
-  <article class="size-full img-r0"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
-  <article class="fl size-1of3 img-r img-r1"></article>
+<section class="size-9of12 mw-90-l center">
+  <article class="phm size-full img-r0">
+    <h1 class="aqua uppercase">Dinner and a Movie</h1>
+  </article>
+  <section class="mls-n clear">
+    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
+    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
+    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
+    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
+    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
+    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
+    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
+    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
+    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
+  </section>
+
+
+  <ul ng-repeat="r in restaurants">
+    <li>{{ r.name }}</li>
+    <li>{{ r.city }}, {{r.country_display}}</li>
+    <li>{{ r.price }}</li>
+  </ul>
 </section>
