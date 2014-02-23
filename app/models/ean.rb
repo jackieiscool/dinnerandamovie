@@ -8,15 +8,15 @@ class Ean
     restaurants = Restaurant.all
     restaurants.each do |restaurant|
       hotel = self.hotel restaurant
-      restaurant.hotel =
+      hotel =
       { name: hotel["name"],
         price: hotel["highRate"]
       }
-      daparture = Departure.find_by_airport_code(airport_code)
-      flight = Flight.find_by_restaurant_id_and_departure_id(restaurant.id, departure.id)
-      restaurant.flight = flight
+      departure = Departure.find_by_airport_code(airport_code.upcase)
+      flight = Flight.find_by_restaurant_id_and_departure_id(restaurant.id, departure.id).try(:attributes)
       restaurant[:movie] = 10
-      data << restaurant
+      restaurant_json = restaurant.attributes.merge!({flight: flight, hotel: hotel})
+      data << restaurant_json
     end
     data
   end
