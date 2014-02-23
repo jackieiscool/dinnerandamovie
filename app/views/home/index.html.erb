@@ -13,21 +13,13 @@ https://api.eancdn.com/ean-services/rs/hotel/v3/list?cid=55505&minorRev=99&apiKe
     <h1 class="aqua uppercase">Dinner and a Movie</h1>
   </article>
   <section class="mls-n clear">
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
-    <article class="size-1of3 pls pvs fl"><div class="img-r img-r1"></div></article>
+    <article ng-repeat="r in restaurants" class="pls pvs size-1of3 fl flag text-white tc">
+      <div class="img-r img-r1 flag-child--center">
+        <h2 class="man pan f4 uppercase">{{ r.name }}</h2>
+        <p class="man pan f5">{{ r.city }}, {{ r.country_display }}</p>
+        <p class="man pan f5">{{ r.price }}</p>
+      </div>
+    </article>
   </section>
 
-
-  <ul ng-repeat="r in restaurants">
-    <li>{{ r.name }}</li>
-    <li>{{ r.city }}, {{r.country_display}}</li>
-    <li>{{ r.price }}</li>
-  </ul>
 </section>
