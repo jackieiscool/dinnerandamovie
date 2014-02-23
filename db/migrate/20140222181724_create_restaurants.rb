@@ -9,6 +9,7 @@ class CreateRestaurants < ActiveRecord::Migration
       t.string :country_display
       t.string :country_code
       t.integer :price
+      t.integer :movie
       t.string :website
       t.float :lat
       t.float :lng
