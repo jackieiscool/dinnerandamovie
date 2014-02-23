@@ -10,27 +10,26 @@ myApp.controller('dinnerMovieCtrl', function($scope, $http){
       //if you need to access anything in the views, it needs $scope.someName. Then in the view, you can access it like this: {{ someName }}
       $scope.restaurants = res.data;
      });
+  $scope.toggleVis = function(item) {
+    item.hover != item.hover;
+  };
 });
 
 
 //==================================================================================================
-// DIRECTIVE - geo-location-dir attached to body to find user device location
+// DIRECTIVE - Toggle Visibility of restaurant info on hover
 //==================================================================================================
 myApp.directive('toggleVisDir', function(){
   return {
     restrict: 'AE',
     link: function(scope, element, attrs){
-      console.log("toggleVisDir is working");
-            element.bind('mouseenter', function() {
-                element.show();
-            });
-            element.bind('mouseleave', function() {
-                 element.hide();
-            });
     }
   }
 });
 
+//==================================================================================================
+// DIRECTIVE - geo-location-dir attached to body to find user device location
+//==================================================================================================
 myApp.directive('geoLocationDir', function(){
   return {
     restrict: 'AE',
